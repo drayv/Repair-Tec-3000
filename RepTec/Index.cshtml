@@ -1,0 +1,27 @@
+﻿@using System.Web.Optimization
+<!DOCTYPE HTML>
+<html lang="ru" ng-app="repTec">
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Maksym Shchyhol" />
+    <meta name="description" content="Repair-Tec" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Repair shop management software" />
+    <title>Repair-Tec</title>
+    <link rel="icon" type="image/png" href="favicon.ico" />
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    Hello world!
+
+    <ul class="menu">
+        <li><a href="#/view1">view1</a></li>
+        <li><a href="#/view2">view2</a></li>
+    </ul>
+
+    <div ng-view></div>
+
+    @Scripts.Render("~/Scripts/libraries")
+    @Scripts.Render("~/angular")
+</body>
+</html>
