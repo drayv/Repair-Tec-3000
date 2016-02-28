@@ -5,6 +5,14 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepTec", "RepTec\RepTec.csproj", "{C3A0F5DF-2646-4FA0-AB11-5A5803AB11A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepTec.Core", "RepTec.Core\RepTec.Core.csproj", "{69286836-3943-425F-A0EF-E8A314751230}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepTec.DataAccess", "RepTec.DataAccess\RepTec.DataAccess.csproj", "{07D65F12-06AD-4851-A8BE-CA99A63FC1E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepTec.App", "RepTec.App\RepTec.App.csproj", "{A5CDEE32-3393-4378-8427-ED1A2A88D528}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepTec.Console", "RepTec.Console\RepTec.Console.csproj", "{2C2DCFB5-3C16-44AA-9C9F-235C8102FB33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +23,22 @@ Global
 		{C3A0F5DF-2646-4FA0-AB11-5A5803AB11A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3A0F5DF-2646-4FA0-AB11-5A5803AB11A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3A0F5DF-2646-4FA0-AB11-5A5803AB11A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69286836-3943-425F-A0EF-E8A314751230}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69286836-3943-425F-A0EF-E8A314751230}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69286836-3943-425F-A0EF-E8A314751230}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69286836-3943-425F-A0EF-E8A314751230}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07D65F12-06AD-4851-A8BE-CA99A63FC1E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07D65F12-06AD-4851-A8BE-CA99A63FC1E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07D65F12-06AD-4851-A8BE-CA99A63FC1E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07D65F12-06AD-4851-A8BE-CA99A63FC1E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5CDEE32-3393-4378-8427-ED1A2A88D528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5CDEE32-3393-4378-8427-ED1A2A88D528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5CDEE32-3393-4378-8427-ED1A2A88D528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5CDEE32-3393-4378-8427-ED1A2A88D528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C2DCFB5-3C16-44AA-9C9F-235C8102FB33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C2DCFB5-3C16-44AA-9C9F-235C8102FB33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C2DCFB5-3C16-44AA-9C9F-235C8102FB33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C2DCFB5-3C16-44AA-9C9F-235C8102FB33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
