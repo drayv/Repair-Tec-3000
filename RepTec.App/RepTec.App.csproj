@@ -40,7 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntitiesServices\RepairersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RepTec.Core\RepTec.Core.csproj">
+      <Project>{69286836-3943-425f-a0ef-e8a314751230}</Project>
+      <Name>RepTec.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RepTec.DataAccess\RepTec.DataAccess.csproj">
+      <Project>{07d65f12-06ad-4851-a8be-ca99a63fc1e8}</Project>
+      <Name>RepTec.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
