@@ -12,16 +12,25 @@
     @Styles.Render("~/Content/css")
 </head>
 <body>
-    Hello world!
-
-    <ul class="menu">
-        <li><a href="#/view1">view1</a></li>
-        <li><a href="#/view2">view2</a></li>
-    </ul>
-
-    <div ng-view></div>
-
+    <div class="ui stackable inverted menu menu">
+        <div class="ui container">
+            <a href="/" class="header item">
+                <img class="logo" src="~/Content/Assets/repair.png">
+                Repair-Tec
+            </a>
+            <a href="#/view1" class="teal item active">Teal</a>
+            <a href="#/view2" class="blue item">Blue</a>
+            <a class="violet item">Violet</a>
+            <a class="brown item">Brown</a>
+            <a class="olive item">Olive</a>
+            <a class="green item">Green</a>
+        </div>
+    </div>
+    <div class="ui main text container">
+        <ng-view></ng-view>
+    </div>
     @Scripts.Render("~/Scripts/libraries")
     @Scripts.Render("~/angular")
+    @Scripts.Render("~/Scripts/semantic")
 </body>
 </html>
