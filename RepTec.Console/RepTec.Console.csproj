@@ -55,10 +55,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RepTec.App\RepTec.App.csproj">
-      <Project>{a5cdee32-3393-4378-8427-ed1a2a88d528}</Project>
-      <Name>RepTec.App</Name>
-    </ProjectReference>
     <ProjectReference Include="..\RepTec.Core\RepTec.Core.csproj">
       <Project>{69286836-3943-425f-a0ef-e8a314751230}</Project>
       <Name>RepTec.Core</Name>
