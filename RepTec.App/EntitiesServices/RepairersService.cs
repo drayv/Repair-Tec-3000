@@ -12,7 +12,7 @@ namespace RepTec.App.EntitiesServices
             using (var db = new RepTecUnitOfWork())
             {
                 // test insert
-                db.RepairersRepository.Insert(new Repairer { Name = "Test!" });
+                db.RepairersRepository.Insert(new Repairer { Name = "Тестовый!" });
                 db.Commit();
 
                 repairers = db.RepairersRepository.GetAll();

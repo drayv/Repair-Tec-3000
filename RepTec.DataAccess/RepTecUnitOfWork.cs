@@ -34,8 +34,12 @@ namespace RepTec.DataAccess
         {
             if (!disposing) return;
             if (_dbContext == null) return;
-            _dbContext.Dispose();
-            _dbContext = null;
+            try
+            {
+                _dbContext.Dispose();
+                _dbContext = null;
+            }
+            catch { }
         }
     }
 }

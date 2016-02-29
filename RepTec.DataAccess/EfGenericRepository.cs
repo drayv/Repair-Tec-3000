@@ -109,8 +109,12 @@ namespace RepTec.DataAccess
         {
             if (!disposing) return;
             if (_context == null) return;
-            _context.Dispose();
-            _context = null;
+            try
+            {
+                _context.Dispose();
+                _context = null;
+            }
+            catch { }
         }
     }
 }
