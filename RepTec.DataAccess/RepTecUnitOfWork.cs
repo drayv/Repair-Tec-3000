@@ -14,9 +14,34 @@ namespace RepTec.DataAccess
             _dbContext.Database.EnsureCreated();
         }
 
+        public NomenclatureInRequestRepository NomenclatureInRequestRepository
+        {
+            get { return new NomenclatureInRequestRepository(_dbContext); }
+        }
+
+        public NomenclatureRepository NomenclatureRepository
+        {
+            get { return new NomenclatureRepository(_dbContext); }
+        }
+
+        public NomenclatureTypesRepository NomenclatureTypesRepository
+        {
+            get { return new NomenclatureTypesRepository(_dbContext); }
+        }
+
         public RepairersRepository RepairersRepository
         {
             get { return new RepairersRepository(_dbContext); }
+        }
+
+        public RepairRequestsRepository RepairRequestsRepository
+        {
+            get { return new RepairRequestsRepository(_dbContext); }
+        }
+
+        public RepairStatusesRepository RepairStatusesRepository
+        {
+            get { return new RepairStatusesRepository(_dbContext); }
         }
 
         public int Commit()

@@ -6,7 +6,12 @@ namespace RepTec.DataAccess
 {
     public class RepTecContext : DbContext
     {
+        public DbSet<RepairRequest> RepairRequests { get; set; }
         public DbSet<Repairer> Repairers { get; set; }
+        public DbSet<Nomenclature> NomenclatureList { get; set; }
+        public DbSet<NomenclatureInRequest> NomenclatureInRequestList { get; set; }
+        public DbSet<NomenclatureType> NomenclatureTypes { get; set; }
+        public DbSet<RepairStatus> RepairStatuses { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

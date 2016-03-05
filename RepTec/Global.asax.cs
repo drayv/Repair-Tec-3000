@@ -9,6 +9,7 @@ namespace RepTec
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            App.Startup.AppStartup();
         }
     }
 }

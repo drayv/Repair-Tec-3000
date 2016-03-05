@@ -41,7 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\Entity.cs" />
+    <Compile Include="Entity\Nomenclature.cs" />
+    <Compile Include="Entity\NomenclatureInRequest.cs" />
+    <Compile Include="Entity\NomenclatureType.cs" />
     <Compile Include="Entity\Repairer.cs" />
+    <Compile Include="Entity\RepairRequest.cs" />
+    <Compile Include="Entity\RepairStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

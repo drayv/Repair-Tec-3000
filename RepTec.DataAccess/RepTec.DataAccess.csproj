@@ -129,10 +129,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EfGenericRepository.cs" />
+    <Compile Include="Repositories\NomenclatureInRequestRepository.cs" />
+    <Compile Include="Repositories\NomenclatureRepository.cs" />
+    <Compile Include="Repositories\NomenclatureTypesRepository.cs" />
     <Compile Include="Repositories\RepairersRepository.cs" />
+    <Compile Include="Repositories\RepairRequestsRepository.cs" />
+    <Compile Include="Repositories\RepairStatusesRepository.cs" />
     <Compile Include="RepTecContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepTecUnitOfWork.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RepTec.Core\RepTec.Core.csproj">
