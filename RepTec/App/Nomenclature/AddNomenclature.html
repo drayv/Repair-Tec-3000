@@ -1,0 +1,20 @@
+﻿<form class="ui form">
+    <h4 class="ui dividing header">Добавить новую номенклатуру</h4>
+    <div class="field">
+        <label>Наименование</label>
+        <input type="text" ng-model="nomenclature.Name" placeholder="Наименование">
+    </div>
+    <div class="field">
+        <label>Тип {{nomenclature.Type.Id}}</label>
+        <div class="ui fluid search selection dropdown">
+            <input id="nomenclatureType" type="hidden" name="country" value="{{nomenclature.Type.Id}}">
+            <i class="dropdown icon"></i>
+            <div class="default text">Тип номенклатуры</div>
+            <div class="menu">
+                <div class="item" ng-repeat="type in nomenclatureTypes" data-value="{{type.Id}}" ng-click="setNomenclatureType(type.Id)">{{type.Name}}</div>
+            </div>
+        </div>
+    </div>
+    <button ng-click="createNewNomenclature()" class="ui green primary button">Сохранить</button>
+    <button ng-click="cancel()" class="ui red basic button">Отмена</button>
+</form>

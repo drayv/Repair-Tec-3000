@@ -19,11 +19,11 @@ angular.module('repTec.helpers', ['ngRoute'])
 
             scope.startingItem = function () {
                 return scope.currentPage * scope.itemsPerPage;
-            }
+            };
 
             scope.numberOfPages = function () {
                 return Math.ceil(scope.filteredItems.length / scope.itemsPerPage);
-            }
+            };
         },
         searchMatch: function (haystack, needle) {
             if (!needle) {

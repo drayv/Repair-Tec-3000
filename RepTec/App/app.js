@@ -2,10 +2,11 @@
 
 angular.module('repTec', [
   'ngRoute',
-  'repTec.services',
+  'repTec.restfulService',
   'repTec.helpers',
   'repTec.view1',
-  'repTec.repairers'
+  'repTec.repairers',
+  'repTec.nomenclature'
 ]).
 
 config(['$routeProvider', function ($routeProvider) {

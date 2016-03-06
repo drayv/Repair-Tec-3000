@@ -9,3 +9,7 @@
 .ui.stackable.menu {
     border-radius: 0;
 }
+
+#search {
+    margin-top: 10px;
+}

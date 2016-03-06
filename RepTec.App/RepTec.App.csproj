@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntitiesServices\NomenclatureService.cs" />
+    <Compile Include="EntitiesServices\NomenclatureTypesService.cs" />
     <Compile Include="EntitiesServices\RepairersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

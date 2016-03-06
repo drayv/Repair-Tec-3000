@@ -1,18 +1,9 @@
-﻿<div class="ui steps">
-    <div class="step">
-        <div class="title">Мастер</div>
-        <div class="description">Добавление нового мастера по ремонту</div>
+﻿<form class="ui form">
+    <h4 class="ui dividing header">Добавить нового мастера по ремонту</h4>
+    <div class="field">
+        <label>Ф.И.О.</label>
+        <input type="text" ng-model="repairer.Name" placeholder="Ф.И.О.">
     </div>
-</div>
-
-<div class="small ui fluid icon input">
-    <input type="text" ng-model="repairer.Name" placeholder="Ф.И.О.">
-    <div class="ui left pointing label">
-        Ф.И.О.
-    </div>
-</div>
-
-<br />
-<div class="controls">
     <button ng-click="createNewRepairer()" class="ui green primary button">Сохранить</button>
-</div>
+    <button ng-click="cancel()" class="ui red basic button">Отмена</button>
+</form>

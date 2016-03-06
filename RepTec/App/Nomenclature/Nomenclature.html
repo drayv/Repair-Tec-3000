@@ -1,5 +1,5 @@
 ﻿<div>
-    <button class="positive medium ui button" ng-click="createNewRepairer()">Добавить</button>
+    <button class="positive medium ui button" ng-click="createNewNomenclature()">Добавить</button>
     <div class="ui small icon input">
         <input id="search" type="text" ng-model="query" ng-change="search()" placeholder="Поиск">
         <i class="search icon"></i>
@@ -8,21 +8,23 @@
 <table class="ui celled table" ng-cloak>
     <thead>
         <tr>
-            <th style="min-width: 80px;">ФИО</th>
+            <th style="min-width: 40px;">Наименование</th>
+            <th style="min-width: 40px;">Тип</th>
             <th style="width:20px;">&nbsp;</th>
             <th style="width:20px;">&nbsp;</th>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="repairer in filteredItems | startFrom: startingItem() | limitTo: itemsPerPage">
-            <td>{{repairer.Name}}</td>
-            <td><a href="" ng-click="editRepairer(repairer.Id)">Изменить</a></td>
-            <td><a href="" ng-click="deleteRepairer(repairer.Id)">Удалить</a></td>
+        <tr ng-repeat="nomenclature in filteredItems | startFrom: startingItem() | limitTo: itemsPerPage">
+            <td>{{nomenclature.Name}}</td>
+            <td>{{nomenclature.Type.Name}}</td>
+            <td><a href="" ng-click="editNomenclature(nomenclature.Id)">Изменить</a></td>
+            <td><a href="" ng-click="deleteNomenclature(nomenclature.Id)">Удалить</a></td>
         </tr>
     </tbody>
     <tfoot>
         <tr>
-            <th colspan="3">
+            <th colspan="4">
                 <div class="ui right floated pagination menu">
                     <a ng-click="prevPage()" class="icon item">
                         <i class="left chevron icon"></i>
@@ -38,5 +40,5 @@
 </table>
 
 <script>
-    $('#repairers-menu-item').removeClass('active').addClass('active');
+    $('#nomenclature-menu-item').removeClass('active').addClass('active');
 </script>

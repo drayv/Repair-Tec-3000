@@ -38,8 +38,12 @@ angular.module('repTec.repairers', ['ngRoute'])
          $scope.createNewRepairer = function () {
              RepairersFactory.create($scope.repairer).$promise.then(function (result) {
                  $location.path('/repairers');
-             });
-         }
+             })
+         };
+
+         $scope.cancel = function () {
+             $location.path('/repairers');
+         };
      }
 ])
 
@@ -50,9 +54,9 @@ angular.module('repTec.repairers', ['ngRoute'])
         $scope.repairers = RepairersFactory.query();
         $scope.filteredItems = $scope.repairers;
 
-        $scope.editRepairer = function (userId) {
-            $location.path('/repairer/' + userId);
-        }
+        $scope.editRepairer = function (id) {
+            $location.path('/repairer/' + id);
+        };
 
         $scope.deleteRepairer = function (userId) {
             RepairerFactory.delete({ id: userId }).$promise.then(function (result) {
@@ -65,11 +69,11 @@ angular.module('repTec.repairers', ['ngRoute'])
                     $scope.query = "";
                 });
             });
-        }
+        };
 
         $scope.createNewRepairer = function () {
             $location.path('/add-repairer');
-        }
+        };
 
         $scope.search = function () {
             $scope.filteredItems = $filter('filter')($scope.repairers, function (item) {
@@ -78,7 +82,6 @@ angular.module('repTec.repairers', ['ngRoute'])
                 }
                 return false;
             });
-
             $scope.currentPage = 0;
         };
 

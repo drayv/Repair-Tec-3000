@@ -113,13 +113,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App\Helpers\pagination.js" />
+    <Content Include="App\Nomenclature\AddNomenclature.html" />
+    <Content Include="App\Nomenclature\EditNomenclature.html" />
+    <Content Include="App\Nomenclature\Nomenclature.html" />
+    <Content Include="App\Nomenclature\Nomenclature.js" />
     <Content Include="App\Repairers\AddRepairer.html" />
     <Content Include="App\Repairers\EditRepairer.html" />
     <Content Include="App\Repairers\Repairers.html" />
     <Content Include="App\Repairers\Repairers.js" />
-    <Content Include="App\services.js" />
+    <Content Include="App\Service\HelperService.js" />
+    <Content Include="App\Service\RestfulService.js" />
     <Content Include="App_Data\readme.txt" />
+    <Content Include="Content\Semantic-UI\components\dropdown.css" />
+    <Content Include="Content\Semantic-UI\components\dropdown.js" />
+    <Content Include="Content\Semantic-UI\components\dropdown.min.css" />
+    <Content Include="Content\Semantic-UI\components\dropdown.min.js" />
     <Content Include="Content\themes\default\assets\fonts\icons.svg" />
     <Content Include="Content\themes\default\assets\images\flags.png" />
     <Content Include="Scripts\angular-resource.js" />
@@ -129,6 +137,8 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\NomenclatureTypesController.cs" />
+    <Compile Include="Controllers\NomenclatureController.cs" />
     <Compile Include="Controllers\RepairersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -198,7 +208,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\Nomenclature\" />
     <Folder Include="App\RepairRequests\" />
   </ItemGroup>
   <ItemGroup>
