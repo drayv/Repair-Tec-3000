@@ -1,5 +1,4 @@
-﻿using Microsoft.Data.Entity;
-using RepTec.Core.Entity;
+﻿using RepTec.Core.Entity;
 using System.Collections.Generic;
 
 namespace RepTec.DataAccess
@@ -14,10 +13,20 @@ namespace RepTec.DataAccess
                 var count = uof.NomenclatureTypesRepository.GetCount();
                 if (count == 0)
                 {
-                    var nomenclatureTypes = new List<NomenclatureType>();
+                    var nomenclatureTypes = new List<NomenclatureType>
+                    {
+                        new NomenclatureType { Name = "Оборудование" },
+                        new NomenclatureType { Name = "Запчасти" },
+                        new NomenclatureType { Name = "Услуги" }
+                    };
                     uof.NomenclatureTypesRepository.Insert(nomenclatureTypes);
 
-                    var repairStatuses = new List<RepairStatus>();
+                    var repairStatuses = new List<RepairStatus>
+                    {
+                        new RepairStatus { Name = "Новая" },
+                        new RepairStatus { Name = "В работе" },
+                        new RepairStatus { Name = "Выполнена" },
+                    };
                     uof.RepairStatusesRepository.Insert(repairStatuses);
 
                     uof.Commit();

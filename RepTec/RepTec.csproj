@@ -113,7 +113,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\Helpers\pagination.js" />
+    <Content Include="App\Repairers\AddRepairer.html" />
+    <Content Include="App\Repairers\EditRepairer.html" />
+    <Content Include="App\Repairers\Repairers.html" />
+    <Content Include="App\Repairers\Repairers.js" />
+    <Content Include="App\services.js" />
     <Content Include="App_Data\readme.txt" />
+    <Content Include="Scripts\angular-resource.js" />
+    <Content Include="Scripts\angular-resource.min.js" />
     <Content Include="Scripts\jquery-2.2.1.min.map" />
   </ItemGroup>
   <ItemGroup>
@@ -129,8 +137,6 @@
     <Content Include="App\app.js" />
     <Content Include="App\view1\view1.html" />
     <Content Include="App\view1\view1.js" />
-    <Content Include="App\view2\view2.html" />
-    <Content Include="App\view2\view2.js" />
     <Content Include="Content\Assets\repair.png" />
     <Content Include="Content\Semantic-UI\components\menu.css" />
     <Content Include="Content\Semantic-UI\components\menu.js" />
@@ -188,6 +194,13 @@
       <Project>{69286836-3943-425f-a0ef-e8a314751230}</Project>
       <Name>RepTec.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App\Nomenclature\" />
+    <Folder Include="App\RepairRequests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scripts\angular-resource.min.js.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

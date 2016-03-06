@@ -12,7 +12,8 @@ namespace RepTec
                 "~/Scripts/modernizr-{version}.js",
                 "~/Scripts/jquery-{version}.js",
                 "~/Scripts/angular.js",
-                "~/Scripts/angular-route.js"));
+                "~/Scripts/angular-route.js",
+                "~/Scripts/angular-resource.js"));
 
             bundles.Add(new ScriptBundle("~/Scripts/semantic").IncludeDirectory("~/Content/Semantic-UI", "*.js", true));
 

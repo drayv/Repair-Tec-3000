@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using RepTec.App.EntitiesServices;
+﻿using RepTec.App.EntitiesServices;
+using RepTec.Core.Entity;
 using System.Collections.Generic;
 using System.Web.Http;
 
@@ -8,34 +8,40 @@ namespace RepTec.Controllers
     public class RepairersController : ApiController
     {
         // GET api/Repairers
-        public IEnumerable<string> Get()
+        public IEnumerable<Repairer> Get()
         {
             var repairersService = new RepairersService();
             var repairers = repairersService.GetAll();
-            var json = JsonConvert.SerializeObject(repairers);
-            
-            yield return json;
+
+            return repairers;
         }
 
         // GET api/Repairers/5
-        public string Get(int id)
+        public Repairer Get(int id)
         {
-            return "value";
+            var repairersService = new RepairersService();
+            return repairersService.GetById(id);
         }
 
         // POST api/Repairers
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Repairer value)
         {
+            var repairersService = new RepairersService();
+            repairersService.Insert(value);
         }
 
         // PUT api/Repairers/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, [FromBody]Repairer value)
         {
+            var repairersService = new RepairersService();
+            repairersService.Update(value);
         }
 
         // DELETE api/Repairers/5
         public void Delete(int id)
         {
+            var repairersService = new RepairersService();
+            repairersService.Delete(id);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿@using System.Web.Optimization
 <!DOCTYPE HTML>
-<html lang="ru" ng-app="repTec">
+<html lang="ru">
 <head>
     <meta charset="utf-8" />
     <meta name="author" content="Maksym Shchyhol" />
@@ -11,19 +11,16 @@
     <link rel="icon" type="image/png" href="favicon.ico" />
     @Styles.Render("~/Content/css")
 </head>
-<body>
+<body ng-app="repTec">
     <div class="ui stackable inverted menu menu">
         <div class="ui container">
             <a href="/" class="header item">
                 <img class="logo" src="~/Content/Assets/repair.png" alt="">
                 Repair-Tec
             </a>
-            <a href="#/view1" class="teal item active">Teal</a>
-            <a href="#/view2" class="blue item">Blue</a>
-            <a class="violet item">Violet</a>
-            <a class="brown item">Brown</a>
-            <a class="olive item">Olive</a>
-            <a class="green item">Green</a>
+            <a id="requests-menu-item" href="#/view1" class="teal item">Заявки на ремонт</a>
+            <a id="repairers-menu-item" href="#/repairers" class="blue item">Мастера</a>
+            <a id="nomenclature-menu-item" class="violet item">Номенклатура</a>
         </div>
     </div>
     <div class="ui main text container">
