@@ -17,12 +17,18 @@ angular.module('repTec.repairers', ['ngRoute'])
 
 .controller('EditRepairerCtrl', ['$scope', 'RepairerFactory', '$location', '$routeParams',
      function ($scope, RepairerFactory, $location, $routeParams) {
+         $scope.repairer = {};
+
          $scope.updateRepairer = function () {
-             RepairerFactory.update({
-                 id: $scope.repairer.Id
-             }, $scope.repairer).$promise.then(function (result) {
-                 $location.path('/repairers');
-             });
+             if ($scope.repairer.Name) {
+                 RepairerFactory.update({
+                     id: $scope.repairer.Id
+                 }, $scope.repairer).$promise.then(function (result) {
+                     $location.path('/repairers');
+                 });
+             } else {
+                 $('.ui.form').form({ fields: { Name: 'empty' } });
+             }
          };
 
          $scope.cancel = function () {
@@ -35,10 +41,16 @@ angular.module('repTec.repairers', ['ngRoute'])
 
 .controller('AddRepairerCtrl', ['$scope', 'RepairersFactory', '$location',
      function ($scope, RepairersFactory, $location) {
+         $scope.repairer = {};
+
          $scope.createNewRepairer = function () {
-             RepairersFactory.create($scope.repairer).$promise.then(function (result) {
-                 $location.path('/repairers');
-             })
+             if ($scope.repairer.Name) {
+                 RepairersFactory.create($scope.repairer).$promise.then(function (result) {
+                     $location.path('/repairers');
+                 });
+             } else {
+                 $('.ui.form').form({ fields: { Name: 'empty' } });
+             }
          };
 
          $scope.cancel = function () {

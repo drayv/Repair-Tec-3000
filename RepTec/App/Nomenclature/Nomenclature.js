@@ -26,7 +26,7 @@ angular.module('repTec.nomenclature', ['ngRoute'])
                      $('#nomenclatureType').val($scope.nomenclature.Type.Id);
                      $('.ui.dropdown').dropdown();
                  }, 0);
-             });         
+             });
          });
 
          $scope.setNomenclatureType = function (id) {
@@ -34,11 +34,15 @@ angular.module('repTec.nomenclature', ['ngRoute'])
          };
 
          $scope.updateNomenclature = function () {
-             NomenclatureUnitFactory.update({
-                 id: $scope.nomenclature.Id
-             }, $scope.nomenclature).$promise.then(function (result) {
-                 $location.path('/nomenclature');
-             });
+             if ($scope.nomenclature.Type.Id && $scope.nomenclature.Name) {
+                 NomenclatureUnitFactory.update({
+                     id: $scope.nomenclature.Id
+                 }, $scope.nomenclature).$promise.then(function (result) {
+                     $location.path('/nomenclature');
+                 });
+             } else {
+                 $('.ui.form').form({ fields: { Name: 'empty', Type: 'empty' } });
+             }
          };
 
          $scope.cancel = function () {
@@ -61,9 +65,13 @@ angular.module('repTec.nomenclature', ['ngRoute'])
          };
 
          $scope.createNewNomenclature = function () {
-             NomenclatureFactory.create($scope.nomenclature).$promise.then(function (result) {
-                 $location.path('/nomenclature');
-             })
+             if ($scope.nomenclature.Type.Id && $scope.nomenclature.Name) {
+                 NomenclatureFactory.create($scope.nomenclature).$promise.then(function (result) {
+                     $location.path('/nomenclature');
+                 });
+             } else {
+                 $('.ui.form').form({ fields: { Name: 'empty', Type: 'empty' } });
+             }
          };
 
          $scope.cancel = function () {

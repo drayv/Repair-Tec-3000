@@ -2,12 +2,12 @@
     <h4 class="ui dividing header">Добавить новую номенклатуру</h4>
     <div class="field">
         <label>Наименование</label>
-        <input type="text" ng-model="nomenclature.Name" placeholder="Наименование">
+        <input type="text" ng-model="nomenclature.Name" name="Name" placeholder="Наименование">
     </div>
     <div class="field">
         <label>Тип {{nomenclature.Type.Id}}</label>
         <div class="ui fluid search selection dropdown">
-            <input id="nomenclatureType" type="hidden" name="country" value="{{nomenclature.Type.Id}}">
+            <input id="nomenclatureType" type="hidden" name="Type" value="{{nomenclature.Type.Id}}">
             <i class="dropdown icon"></i>
             <div class="default text">Тип номенклатуры</div>
             <div class="menu">
