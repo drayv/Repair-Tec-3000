@@ -15,7 +15,7 @@
     </thead>
     <tbody>
         <tr ng-repeat="repairer in filteredItems | startFrom: startingItem() | limitTo: itemsPerPage">
-            <td>{{ repairer.Name }}</td>
+            <td>{{repairer.Name}}</td>
             <td><a href="" ng-click="editRepairer(repairer.Id)">Изменить</a></td>
             <td><a href="" ng-click="deleteRepairer(repairer.Id)">Удалить</a></td>
         </tr>
