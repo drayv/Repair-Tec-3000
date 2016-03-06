@@ -47,3 +47,30 @@ services.factory('NomenclatureTypesFactory', ['$resource',
         });
     }
 ]);
+
+services.factory('RepairRequestsFactory', ['$resource',
+    function ($resource) {
+        return $resource('/api/RepairRequests', {}, {
+            query: { method: 'GET', isArray: true },
+            create: { method: 'POST' }
+        });
+    }
+]);
+
+services.factory('RepairRequestFactory', ['$resource',
+    function ($resource) {
+        return $resource('/api/RepairRequests/:id', {}, {
+            show: { method: 'GET' },
+            update: { method: 'PUT', params: { id: '@id' } },
+            delete: { method: 'DELETE', params: { id: '@id' } }
+        });
+    }
+]);
+
+services.factory('RepairStatusesFactory', ['$resource',
+    function ($resource) {
+        return $resource('/api/RepairStatuses', {}, {
+            query: { method: 'GET', isArray: true },
+        });
+    }
+]);

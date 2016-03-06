@@ -1,0 +1,33 @@
+﻿<form class="ui form">
+    <h4 class="ui dividing header">Добавить заявку на ремонт</h4>
+    <div class="field">
+        <label>Статус заявки {{repairRequest.Status.Id}}</label>
+        <div class="ui fluid search selection dropdown">
+            <input id="status" type="hidden" name="Status" value="{{repairRequest.Status.Id}}">
+            <i class="dropdown icon"></i>
+            <div class="default text">Статус заявки</div>
+            <div class="menu">
+                <div class="item" ng-repeat="status in repairStatuses"
+                     data-value="{{status.Id}}" ng-click="setStatus(status.Id)">{{status.Name}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <label>Оборудование для ремонта {{repairRequest.EquipmentToBeRepaired.Id}}</label>
+        <div class="ui fluid search selection dropdown">
+            <input id="equipmentToBeRepaired" type="hidden" name="EquipmentToBeRepaired" value="{{repairRequest.EquipmentToBeRepaired.Id}}">
+            <i class="dropdown icon"></i>
+            <div class="default text">Оборудование для ремонта</div>
+            <div class="menu">
+                <div class="item" ng-repeat="unit in nomenclature | filter : equipmentSearch" 
+                     data-value="{{unit.Id}}" ng-click="setEquipmentToBeRepaired(unit.Id)">{{unit.Name}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <label>Комментарий</label>
+        <input type="text" ng-model="repairRequest.Name" name="Name" placeholder="Комментарий">
+    </div>
+    <button ng-click="createNewRepairRequest()" class="ui green primary button">Сохранить</button>
+    <button ng-click="cancel()" class="ui red basic button">Отмена</button>
+</form>

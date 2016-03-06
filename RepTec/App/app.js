@@ -4,11 +4,11 @@ angular.module('repTec', [
   'ngRoute',
   'repTec.restfulService',
   'repTec.helpers',
-  'repTec.view1',
+  'repTec.repairRequests',
   'repTec.repairers',
   'repTec.nomenclature'
 ]).
 
 config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.otherwise({ redirectTo: '/view1' });
+    $routeProvider.otherwise({ redirectTo: '/repair-requests' });
 }]);

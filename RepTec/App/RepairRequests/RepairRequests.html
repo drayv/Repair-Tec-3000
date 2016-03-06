@@ -1,5 +1,5 @@
 ﻿<div>
-    <button class="positive medium ui button" ng-click="createNewNomenclature()">Добавить</button>
+    <button class="positive medium ui button" ng-click="createNewRepairRequest()">Добавить</button>
     <div class="ui small icon input">
         <input id="search" type="text" ng-model="query" ng-change="search()" placeholder="Поиск">
         <i class="search icon"></i>
@@ -8,18 +8,22 @@
 <table class="ui celled table" ng-cloak>
     <thead>
         <tr>
-            <th>Наименование</th>
-            <th>Тип</th>
+            <th>Заявка</th>
+            <th style="width:20px;">Статус</th>
             <th style="width:5px;">&nbsp;</th>
             <th style="width:5px;">&nbsp;</th>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="nomenclature in filteredItems | startFrom: startingItem() | limitTo: itemsPerPage">
-            <td>{{nomenclature.Name}}</td>
-            <td>{{nomenclature.Type.Name}}</td>
-            <td><a href="" ng-click="editNomenclature(nomenclature.Id)"><i class="edit icon"></i></a></td>
-            <td><a href="" ng-click="deleteNomenclature(nomenclature.Id)"><i class="remove circle icon"></i></a></td>
+        <tr ng-repeat="repairRequest in filteredItems | startFrom: startingItem() | limitTo: itemsPerPage">
+            <td>
+                Заявка номер: {{repairRequest.Id}}, от: {{repairRequest.Date}},
+                на ремонт: {{repairRequest.EquipmentToBeRepaired.Name}}, по адресу: {{repairRequest.Adress}},
+                Мастер: {{repairRequest.Repairer.Name}}, Комментарий: {{repairRequest.Name}}
+            </td>
+            <td>{{repairRequest.Status}}</td>
+            <td><a href="" ng-click="editRepairRequest(repairRequest.Id)"><i class="edit icon"></i></a></td>
+            <td><a href="" ng-click="deleteRepairRequest(repairRequest.Id)"><i class="remove circle icon"></i></a></td>
         </tr>
     </tbody>
     <tfoot>
@@ -40,5 +44,5 @@
 </table>
 
 <script>
-    $('#nomenclature-menu-item').removeClass('active').addClass('active');
+    $('#requests-menu-item').removeClass('active').addClass('active');
 </script>

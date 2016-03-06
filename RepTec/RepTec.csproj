@@ -121,6 +121,10 @@
     <Content Include="App\Repairers\EditRepairer.html" />
     <Content Include="App\Repairers\Repairers.html" />
     <Content Include="App\Repairers\Repairers.js" />
+    <Content Include="App\RepairRequests\AddRepairRequest.html" />
+    <Content Include="App\RepairRequests\EditRepairRequest.html" />
+    <Content Include="App\RepairRequests\RepairRequests.html" />
+    <Content Include="App\RepairRequests\RepairRequests.js" />
     <Content Include="App\Service\HelperService.js" />
     <Content Include="App\Service\RestfulService.js" />
     <Content Include="App_Data\readme.txt" />
@@ -140,6 +144,8 @@
     <Compile Include="Controllers\NomenclatureTypesController.cs" />
     <Compile Include="Controllers\NomenclatureController.cs" />
     <Compile Include="Controllers\RepairersController.cs" />
+    <Compile Include="Controllers\RepairRequestsController.cs" />
+    <Compile Include="Controllers\RepairStatusesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -147,8 +153,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App\app.js" />
-    <Content Include="App\view1\view1.html" />
-    <Content Include="App\view1\view1.js" />
     <Content Include="Content\Assets\repair.png" />
     <Content Include="Content\Semantic-UI\components\menu.css" />
     <Content Include="Content\Semantic-UI\components\menu.js" />
@@ -207,9 +211,7 @@
       <Name>RepTec.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App\RepairRequests\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Scripts\angular-resource.min.js.map" />
   </ItemGroup>

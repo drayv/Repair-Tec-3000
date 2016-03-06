@@ -83,7 +83,7 @@ angular.module('repTec.nomenclature', ['ngRoute'])
 .controller('NomenclatureCtrl', ['$scope', 'NomenclatureFactory', 'NomenclatureUnitFactory', 'HelperService', '$location', '$filter',
     function ($scope, NomenclatureFactory, NomenclatureUnitFactory, HelperService, $location, $filter) {
         $scope.currentPage = 0;
-        $scope.itemsPerPage = 5;
+        $scope.itemsPerPage = 10;
         $scope.nomenclature = NomenclatureFactory.query();
         $scope.filteredItems = $scope.nomenclature;
 
@@ -91,8 +91,8 @@ angular.module('repTec.nomenclature', ['ngRoute'])
             $location.path('/nomenclature/' + id);
         };
 
-        $scope.deleteNomenclature = function (userId) {
-            NomenclatureUnitFactory.delete({ id: userId }).$promise.then(function (result) {
+        $scope.deleteNomenclature = function (id) {
+            NomenclatureUnitFactory.delete({ id: id }).$promise.then(function (result) {
                 NomenclatureFactory.query().$promise.then(function (result) {
                     $scope.nomenclature = result;
                     $scope.filteredItems = $scope.nomenclature;

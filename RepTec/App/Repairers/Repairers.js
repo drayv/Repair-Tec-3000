@@ -62,7 +62,7 @@ angular.module('repTec.repairers', ['ngRoute'])
 .controller('RepairersCtrl', ['$scope', 'RepairersFactory', 'RepairerFactory', 'HelperService', '$location', '$filter',
     function ($scope, RepairersFactory, RepairerFactory, HelperService, $location, $filter) {
         $scope.currentPage = 0;
-        $scope.itemsPerPage = 5;
+        $scope.itemsPerPage = 10;
         $scope.repairers = RepairersFactory.query();
         $scope.filteredItems = $scope.repairers;
 
@@ -70,8 +70,8 @@ angular.module('repTec.repairers', ['ngRoute'])
             $location.path('/repairer/' + id);
         };
 
-        $scope.deleteRepairer = function (userId) {
-            RepairerFactory.delete({ id: userId }).$promise.then(function (result) {
+        $scope.deleteRepairer = function (id) {
+            RepairerFactory.delete({ id: id }).$promise.then(function (result) {
                 RepairersFactory.query().$promise.then(function (result) {
                     $scope.repairers = result;
                     $scope.filteredItems = $scope.repairers;
