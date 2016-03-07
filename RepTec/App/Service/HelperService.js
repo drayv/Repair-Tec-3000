@@ -25,11 +25,14 @@ angular.module('repTec.helpers', ['ngRoute'])
                 return Math.ceil(scope.filteredItems.length / scope.itemsPerPage);
             };
         },
-        searchMatch: function (haystack, needle) {
-            if (!needle) {
+        searchMatch: function (find, query) {
+            if (!query) {
                 return true;
             }
-            return haystack.toLowerCase().indexOf(needle.toLowerCase()) !== -1;
+            if (find == null) {
+                return false;
+            }
+            return find.toLowerCase().indexOf(query.toLowerCase()) !== -1;
         }
     }
 });

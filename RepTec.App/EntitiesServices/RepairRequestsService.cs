@@ -1,5 +1,6 @@
 ﻿using RepTec.Core.Entity;
 using RepTec.DataAccess;
+using System;
 using System.Collections.Generic;
 
 namespace RepTec.App.EntitiesServices
@@ -10,6 +11,8 @@ namespace RepTec.App.EntitiesServices
         {
             using (var db = new RepTecUnitOfWork())
             {
+                repairRequest.Date = DateTime.Now;
+
                 var status = db.RepairStatusesRepository.GetByСondition(s => s.Id == repairRequest.Status.Id);
                 repairRequest.Status = status;
 
@@ -29,7 +32,8 @@ namespace RepTec.App.EntitiesServices
             List<RepairRequest> repairRequests;
             using (var db = new RepTecUnitOfWork())
             {
-                repairRequests = db.RepairRequestsRepository.GetAll(null, r => r.Repairer, r => r.EquipmentToBeRepaired);
+                repairRequests = db.RepairRequestsRepository.GetAll(null, r => r.Status,
+                    r => r.Repairer, r => r.EquipmentToBeRepaired);
             }
             return repairRequests;
         }
@@ -39,7 +43,8 @@ namespace RepTec.App.EntitiesServices
             RepairRequest repairRequest;
             using (var db = new RepTecUnitOfWork())
             {
-                repairRequest = db.RepairRequestsRepository.GetByСondition(r => r.Id == id, r => r.Repairer, r => r.EquipmentToBeRepaired);
+                repairRequest = db.RepairRequestsRepository.GetByСondition(r => r.Id == id, r => r.Status,
+                    r => r.Repairer, r => r.EquipmentToBeRepaired);
             }
             return repairRequest;
         }

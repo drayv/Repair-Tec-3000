@@ -1,1 +1,49 @@
-﻿test
+﻿<form class="ui form">
+    <h4 class="ui dividing header">Редактировать заявку на ремонт</h4>
+    <div class="field">
+        <label>Статус заявки</label>
+        <div class="ui fluid search selection dropdown">
+            <input id="status" type="hidden" name="Status" value="{{repairRequest.Status.Id}}">
+            <i class="dropdown icon"></i>
+            <div class="default text">Статус</div>
+            <div class="menu">
+                <div class="item" ng-repeat="status in repairStatuses"
+                     data-value="{{status.Id}}" ng-click="setStatus(status.Id)">{{status.Name}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <label>Оборудование для ремонта</label>
+        <div class="ui fluid search selection dropdown">
+            <input id="equipmentToBeRepaired" type="hidden" name="EquipmentToBeRepaired" value="{{repairRequest.EquipmentToBeRepaired.Id}}">
+            <i class="dropdown icon"></i>
+            <div class="default text">Оборудование</div>
+            <div class="menu">
+                <div class="item" ng-repeat="unit in nomenclature | filter : equipmentSearch"
+                     data-value="{{unit.Id}}" ng-click="setEquipmentToBeRepaired(unit.Id)">{{unit.Name}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <label>Адрес оборудования</label>
+        <input type="text" ng-model="repairRequest.Adress" name="Adress" placeholder="Адрес">
+    </div>
+    <div class="field">
+        <label>Ответственный мастер по ремонту</label>
+        <div class="ui fluid search selection dropdown">
+            <input id="repairer" type="hidden" name="Repairer" value="{{repairRequest.Repairer.Id}}">
+            <i class="dropdown icon"></i>
+            <div class="default text">Мастер</div>
+            <div class="menu">
+                <div class="item" ng-repeat="repairer in repairers"
+                     data-value="{{repairer.Id}}" ng-click="setRepairer(repairer.Id)">{{repairer.Name}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <label>Комментарий</label>
+        <input type="text" ng-model="repairRequest.Name" name="Name" placeholder="Комментарий">
+    </div>
+    <button ng-click="updateRepairRequest()" class="ui green primary button">Сохранить</button>
+    <button ng-click="cancel()" class="ui red basic button">Отмена</button>
+</form>

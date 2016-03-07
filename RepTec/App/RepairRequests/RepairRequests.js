@@ -15,44 +15,84 @@ angular.module('repTec.repairRequests', ['ngRoute'])
     }
 })
 
-.controller('EditRepairRequestCtrl', ['$scope', 'RepairRequestFactory', 'NomenclatureFactory', '$location', '$routeParams', '$timeout',
-     function ($scope, RepairRequestFactory, NomenclatureFactory, $location, $routeParams, $timeout) {
-         NomenclatureTypesFactory.query().$promise.then(function (result) {
-             $scope.nomenclatureTypes = result;
-             NomenclatureUnitFactory.show({ id: $routeParams.id }).$promise.then(function (result) {
-                 $scope.nomenclature = result;
+.controller('EditRepairRequestCtrl', ['$scope', 'RepairRequestFactory', 'RepairStatusesFactory', 'NomenclatureFactory',
+    'RepairersFactory', '$location', '$routeParams', '$timeout', function ($scope, RepairRequestFactory,
+        RepairStatusesFactory, NomenclatureFactory, RepairersFactory, $location, $routeParams, $timeout) {
 
-                 $timeout(function () {
-                     $('#nomenclature').val($scope.nomenclature.Type.Id);
-                     $('.ui.dropdown').dropdown();
-                 }, 0);
-             });
-         });
+        $scope.equipmentSearch = {};
+        $scope.equipmentSearch.Type = {};
+        $scope.equipmentSearch.Type.Name = 'Оборудование';
 
-         $scope.setNomenclatureType = function (id) {
-             $scope.nomenclature.Type.Id = id;
-         };
+        RepairRequestFactory.show({ id: $routeParams.id }).$promise.then(function (result) {
+            $scope.repairRequest = result;
 
-         $scope.updateNomenclature = function () {
-             if ($scope.nomenclature.Type.Id && $scope.nomenclature.Name) {
-                 NomenclatureUnitFactory.update({
-                     id: $scope.nomenclature.Id
-                 }, $scope.nomenclature).$promise.then(function (result) {
-                     $location.path('/repair-requests');
-                 });
-             } else {
-                 $('.ui.form').form({ fields: { Name: 'empty', Type: 'empty' } });
-             }
-         };
+            RepairStatusesFactory.query().$promise.then(function (result) {
+                $scope.repairStatuses = result;
 
-         $scope.cancel = function () {
-             $location.path('/repair-requests');
-         };
-     }
+                $timeout(function () {
+                    $('#status').val($scope.repairRequest.Status.Id);
+                    $('.ui.dropdown').dropdown();
+                }, 0);
+            });
+
+            NomenclatureFactory.query().$promise.then(function (result) {
+                $scope.nomenclature = result;
+
+                $timeout(function () {
+                    $('#equipmentToBeRepaired').val($scope.repairRequest.EquipmentToBeRepaired.Id);
+                    $('.ui.dropdown').dropdown();
+                }, 0);
+            });
+
+            RepairersFactory.query().$promise.then(function (result) {
+                $scope.repairers = result;
+                
+                $timeout(function () {
+                    $('#repairer').val($scope.repairRequest.Repairer.Id);
+                    $('.ui.dropdown').dropdown();
+                }, 0);
+            });
+
+        });
+
+        $scope.setStatus = function (id) {
+            $scope.repairRequest.Status.Id = id;
+        };
+
+        $scope.setEquipmentToBeRepaired = function (id) {
+            $scope.repairRequest.EquipmentToBeRepaired.Id = id;
+        };
+
+        $scope.setRepairer = function (id) {
+            $scope.repairRequest.Repairer.Id = id;
+        };
+
+        $scope.updateRepairRequest = function () {
+            if ($scope.repairRequest.Status.Id && $scope.repairRequest.EquipmentToBeRepaired.Id
+                   && $scope.repairRequest.Repairer.Id && $scope.repairRequest.Adress) {
+                RepairRequestFactory.update({
+                    id: $scope.repairRequest.Id
+                }, $scope.repairRequest).$promise.then(function (result) {
+                    $location.path('/repair-requests');
+                });
+            } else {
+                $('.ui.form').form({
+                    fields: {
+                        Status: 'empty', EquipmentToBeRepaired: 'empty',
+                        Repairer: 'empty', Adress: 'empty'
+                    }
+                });
+            }
+        };
+
+        $scope.cancel = function () {
+            $location.path('/repair-requests');
+        };
+    }
 ])
 
-.controller('AddRepairRequestCtrl', ['$scope', 'RepairRequestsFactory', 'NomenclatureFactory', 'RepairStatusesFactory', '$location',
-     function ($scope, RepairRequestsFactory, NomenclatureFactory, RepairStatusesFactory, $location) {
+.controller('AddRepairRequestCtrl', ['$scope', 'RepairRequestsFactory', 'NomenclatureFactory', 'RepairStatusesFactory', 'RepairersFactory', '$location',
+     function ($scope, RepairRequestsFactory, NomenclatureFactory, RepairStatusesFactory, RepairersFactory, $location) {
          $scope.repairRequest = {};
          $scope.repairRequest.Status = {};
          $scope.repairRequest.EquipmentToBeRepaired = {};
@@ -71,6 +111,11 @@ angular.module('repTec.repairRequests', ['ngRoute'])
              $('.ui.dropdown').dropdown();
          });
 
+         RepairersFactory.query().$promise.then(function (result) {
+             $scope.repairers = result;
+             $('.ui.dropdown').dropdown();
+         });
+
          $scope.setStatus = function (id) {
              $scope.repairRequest.Status.Id = id;
          };
@@ -85,12 +130,17 @@ angular.module('repTec.repairRequests', ['ngRoute'])
 
          $scope.createNewRepairRequest = function () {
              if ($scope.repairRequest.Status.Id && $scope.repairRequest.EquipmentToBeRepaired.Id
-                    && $scope.repairRequest.Repairer.Id) {
+                    && $scope.repairRequest.Repairer.Id && $scope.repairRequest.Adress) {
                  RepairRequestsFactory.create($scope.repairRequest).$promise.then(function (result) {
                      $location.path('/repair-requests');
                  });
              } else {
-                 $('.ui.form').form({ fields: { Name: 'empty', Type: 'empty' } });
+                 $('.ui.form').form({
+                     fields: {
+                         Status: 'empty', EquipmentToBeRepaired: 'empty',
+                         Repairer: 'empty', Adress: 'empty'
+                     }
+                 });
              }
          };
 
@@ -130,7 +180,17 @@ angular.module('repTec.repairRequests', ['ngRoute'])
 
         $scope.search = function () {
             $scope.filteredItems = $filter('filter')($scope.repairRequests, function (item) {
-                if (HelperService.searchMatch(item["Name"], $scope.query)) {
+                if (HelperService.searchMatch(item["Status"]["Name"], $scope.query)) {
+                    return true;
+                } else if (HelperService.searchMatch(item["Repairer"]["Name"], $scope.query)) {
+                    return true;
+                } else if (HelperService.searchMatch($filter('date')(item["Date"], "dd-MM-yyyy"), $scope.query)) {
+                    return true;
+                } else if (HelperService.searchMatch(item["Name"], $scope.query)) {
+                    return true;
+                } else if (HelperService.searchMatch(item["Adress"], $scope.query)) {
+                    return true;
+                } else if (HelperService.searchMatch(item["EquipmentToBeRepaired"]["Name"], $scope.query)) {
                     return true;
                 }
                 return false;
