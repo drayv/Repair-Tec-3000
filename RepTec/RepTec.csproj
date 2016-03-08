@@ -141,6 +141,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\NomenclatureInRequestController.cs" />
     <Compile Include="Controllers\NomenclatureTypesController.cs" />
     <Compile Include="Controllers\NomenclatureController.cs" />
     <Compile Include="Controllers\RepairersController.cs" />

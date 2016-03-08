@@ -15,6 +15,14 @@
             </div>
         </div>
     </div>
+    <div class="field">
+        <label>Цена</label>
+        <div class="ui right labeled input">
+            <input type="text" ng-model="nomenclature.Price" name="Price" placeholder="Цена" />
+            <div class="ui basic label">грн.</div>
+        </div>
+    </div>
+    <div class="ui error message"></div>
     <button ng-click="createNewNomenclature()" class="ui green primary button">Сохранить</button>
     <button ng-click="cancel()" class="ui red basic button">Отмена</button>
 </form>

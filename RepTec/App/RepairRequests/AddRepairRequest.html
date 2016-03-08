@@ -26,7 +26,7 @@
     </div>
     <div class="field">
         <label>Адрес оборудования</label>
-        <input type="text" ng-model="repairRequest.Adress" name="Adress" placeholder="Адрес">
+        <input type="text" ng-model="repairRequest.Address" name="Address" placeholder="Адрес">
     </div>
     <div class="field">
         <label>Ответственный мастер по ремонту</label>
@@ -44,6 +44,12 @@
         <label>Комментарий</label>
         <input type="text" ng-model="repairRequest.Name" name="Name" placeholder="Комментарий">
     </div>
+
+    <h4 class="ui dividing header">Номенклатура заявки</h4>
+    <div>Для ведения номенклатуры заявки, пожалуйста сохраните заявку и откройте её на редактирование!</div>
+    <div id="space"></div>
+
     <button ng-click="createNewRepairRequest()" class="ui green primary button">Сохранить</button>
     <button ng-click="cancel()" class="ui red basic button">Отмена</button>
+    <div id="space"></div>
 </form>

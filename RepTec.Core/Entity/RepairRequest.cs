@@ -12,7 +12,7 @@ namespace RepTec.Core.Entity
 
         public Nomenclature EquipmentToBeRepaired { get; set; }
 
-        public string Adress { get; set; }
+        public string Address { get; set; }
 
         public Repairer Repairer { get; set; }
     }

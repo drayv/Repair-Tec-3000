@@ -74,3 +74,20 @@ services.factory('RepairStatusesFactory', ['$resource',
         });
     }
 ]);
+
+services.factory('NomenclatureInRequest', ['$resource',
+    function ($resource) {
+        return $resource('/api/NomenclatureInRequest', {}, {
+            create: { method: 'POST' }
+        });
+    }
+]);
+
+services.factory('NomenclatureUnitInRequest', ['$resource',
+    function ($resource) {
+        return $resource('/api/NomenclatureInRequest/:id', {}, {
+            show: { method: 'GET', isArray: true },
+            delete: { method: 'DELETE', params: { id: '@id' } }
+        });
+    }
+]);

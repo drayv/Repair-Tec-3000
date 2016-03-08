@@ -34,14 +34,33 @@ angular.module('repTec.nomenclature', ['ngRoute'])
          };
 
          $scope.updateNomenclature = function () {
-             if ($scope.nomenclature.Type.Id && $scope.nomenclature.Name) {
+             var price = parseFloat($scope.nomenclature.Price.toString().replace(",", "."));
+             $scope.nomenclature.Price = price;
+
+             if ($scope.nomenclature.Type.Id && $scope.nomenclature.Name && price != null) {
                  NomenclatureUnitFactory.update({
                      id: $scope.nomenclature.Id
                  }, $scope.nomenclature).$promise.then(function (result) {
                      $location.path('/nomenclature');
                  });
              } else {
-                 $('.ui.form').form({ fields: { Name: 'empty', Type: 'empty' } });
+                 $('.ui.form').form({
+                     on: 'blur',
+                     fields: {
+                         Name: {
+                             identifier: 'Name',
+                             rules: [{ type: 'empty', prompt: 'Введите наименование!' }]
+                         },
+                         Type: {
+                             identifier: 'Type',
+                             rules: [{ type: 'empty', prompt: 'Выбирете тип!' }]
+                         },
+                         Price: {
+                             identifier: 'Price',
+                             rules: [{ type: 'regExp[/^([0-9]{0,8}((,)[0-9]{0,2}))$/]', prompt: 'Формат цены: разделитьль: запятая, два знака после запятой как максимум.' }]
+                         }
+                     }
+                 });
              }
          };
 
@@ -57,6 +76,7 @@ angular.module('repTec.nomenclature', ['ngRoute'])
              $scope.nomenclatureTypes = result;
              $scope.nomenclature = {};
              $scope.nomenclature.Type = {};
+             $scope.nomenclature.Price = 0;
              $('.ui.dropdown').dropdown();
          });
 
@@ -65,12 +85,31 @@ angular.module('repTec.nomenclature', ['ngRoute'])
          };
 
          $scope.createNewNomenclature = function () {
-             if ($scope.nomenclature.Type.Id && $scope.nomenclature.Name) {
+             var price = parseFloat($scope.nomenclature.Price.toString().replace(",", "."));
+             $scope.nomenclature.Price = price;
+
+             if ($scope.nomenclature.Type.Id && $scope.nomenclature.Name && price != null) {
                  NomenclatureFactory.create($scope.nomenclature).$promise.then(function (result) {
                      $location.path('/nomenclature');
                  });
              } else {
-                 $('.ui.form').form({ fields: { Name: 'empty', Type: 'empty' } });
+                 $('.ui.form').form({
+                     on: 'blur',
+                     fields: {
+                         Name: {
+                             identifier: 'Name',
+                             rules: [{ type: 'empty', prompt: 'Введите наименование!' }]
+                         },
+                         Type: {
+                             identifier: 'Type',
+                             rules: [{ type: 'empty', prompt: 'Выбирете тип!' }]
+                         },
+                         Price: {
+                             identifier: 'Price',
+                             rules: [{ type: 'regExp[/^([0-9]{0,8}((,)[0-9]{0,2}))$/]', prompt: 'Формат цены: разделитьль: запятая, два знака после запятой как максимум.' }]
+                         }
+                     }
+                 });
              }
          };
 

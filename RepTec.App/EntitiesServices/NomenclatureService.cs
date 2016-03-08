@@ -1,5 +1,6 @@
 ﻿using RepTec.Core.Entity;
 using RepTec.DataAccess;
+using System;
 using System.Collections.Generic;
 
 namespace RepTec.App.EntitiesServices
@@ -8,6 +9,7 @@ namespace RepTec.App.EntitiesServices
     {
         public void Insert(Nomenclature nomenclature)
         {
+            nomenclature.Price = Math.Round(nomenclature.Price, 2);
             using (var db = new RepTecUnitOfWork())
             {
                 var type = db.NomenclatureTypesRepository.GetByСondition(t => t.Id == nomenclature.Type.Id);
@@ -39,6 +41,7 @@ namespace RepTec.App.EntitiesServices
 
         public void Update(Nomenclature nomenclature)
         {
+            nomenclature.Price = Math.Round(nomenclature.Price, 2);
             using (var db = new RepTecUnitOfWork())
             {
                 var type = db.NomenclatureTypesRepository.GetByСondition(t => t.Id == nomenclature.Type.Id);

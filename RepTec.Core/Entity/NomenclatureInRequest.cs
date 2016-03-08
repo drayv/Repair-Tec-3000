@@ -2,7 +2,7 @@
 {
     public class NomenclatureInRequest : Entity<int>
     {
-        public RepairRequest RepairRequest { get; set; }
+        public int RepairRequestId { get; set; }
         public Nomenclature Nomenclature { get; set; }
     }
 }

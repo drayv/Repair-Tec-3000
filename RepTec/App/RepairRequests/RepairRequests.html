@@ -17,7 +17,7 @@
         <tr ng-repeat="repairRequest in filteredItems | startFrom: startingItem() | limitTo: itemsPerPage">
             <td>
                 Заявка номер: {{repairRequest.Id}}, от: {{repairRequest.Date | date:'dd-MM-yyyy'}},
-                на ремонт: {{repairRequest.EquipmentToBeRepaired.Name}}, по адресу: {{repairRequest.Adress}},
+                на ремонт: {{repairRequest.EquipmentToBeRepaired.Name}}, по адресу: {{repairRequest.Address}},
                 Мастер: {{repairRequest.Repairer.Name}}, Комментарий: {{repairRequest.Name}}
             </td>
             <td>{{repairRequest.Status.Name}}</td>

@@ -12,18 +12,18 @@
     @Styles.Render("~/Content/css")
 </head>
 <body ng-app="repTec">
-    <div class="ui stackable inverted menu menu">
+    <div class="ui stackable inverted menu">
         <div class="ui container">
             <a href="/" class="header item">
                 <img class="logo" src="~/Content/Assets/repair.png" alt="">
                 Repair-Tec
             </a>
-            <a id="requests-menu-item" href="#/view1" class="teal item">Заявки на ремонт</a>
+            <a id="requests-menu-item" href="#/repair-requests" class="teal item">Заявки на ремонт</a>
             <a id="repairers-menu-item" href="#/repairers" class="blue item">Мастера</a>
             <a id="nomenclature-menu-item" href="#/nomenclature" class="violet item">Номенклатура</a>
         </div>
     </div>
-    <div class="ui main text container">
+    <div class="ui main container">
         <ng-view></ng-view>
     </div>
     @Scripts.Render("~/Scripts/libraries")
