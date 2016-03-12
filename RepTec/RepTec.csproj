@@ -213,7 +213,6 @@
       <Name>RepTec.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Scripts\angular-resource.min.js.map" />
   </ItemGroup>
