@@ -33,6 +33,13 @@ angular.module('repTec.helpers', ['ngRoute'])
                 return false;
             }
             return find.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+        },
+        activateMenu: function (selector) {
+            $('#logo-menu-item').removeClass('active');
+            $('#nomenclature-menu-item').removeClass('active');
+            $('#repairers-menu-item').removeClass('active');
+            $('#requests-menu-item').removeClass('active');
+            $(selector).addClass('active');
         }
     }
 });

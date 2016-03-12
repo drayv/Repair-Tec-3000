@@ -15,9 +15,11 @@ angular.module('repTec.repairers', ['ngRoute'])
     }
 })
 
-.controller('EditRepairerCtrl', ['$scope', 'RepairerFactory', '$location', '$routeParams',
-     function ($scope, RepairerFactory, $location, $routeParams) {
+.controller('EditRepairerCtrl', ['$scope', 'RepairerFactory', 'HelperService', '$location', '$routeParams',
+     function ($scope, RepairerFactory, HelperService, $location, $routeParams) {
          $scope.repairer = {};
+
+         HelperService.activateMenu('#repairers-menu-item');
 
          $scope.updateRepairer = function () {
              if ($scope.repairer.Name) {
@@ -39,9 +41,11 @@ angular.module('repTec.repairers', ['ngRoute'])
      }
 ])
 
-.controller('AddRepairerCtrl', ['$scope', 'RepairersFactory', '$location',
-     function ($scope, RepairersFactory, $location) {
+.controller('AddRepairerCtrl', ['$scope', 'RepairersFactory', 'HelperService', '$location',
+     function ($scope, RepairersFactory, HelperService, $location) {
          $scope.repairer = {};
+
+         HelperService.activateMenu('#repairers-menu-item');
 
          $scope.createNewRepairer = function () {
              if ($scope.repairer.Name) {
@@ -65,6 +69,8 @@ angular.module('repTec.repairers', ['ngRoute'])
         $scope.itemsPerPage = 10;
         $scope.repairers = RepairersFactory.query();
         $scope.filteredItems = $scope.repairers;
+
+        HelperService.activateMenu('#repairers-menu-item');
 
         $scope.editRepairer = function (id) {
             $location.path('/repairer/' + id);

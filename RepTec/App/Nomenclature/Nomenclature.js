@@ -15,8 +15,10 @@ angular.module('repTec.nomenclature', ['ngRoute'])
     }
 })
 
-.controller('EditNomenclatureCtrl', ['$scope', 'NomenclatureUnitFactory', 'NomenclatureTypesFactory', '$location', '$routeParams', '$timeout',
-     function ($scope, NomenclatureUnitFactory, NomenclatureTypesFactory, $location, $routeParams, $timeout) {
+.controller('EditNomenclatureCtrl', ['$scope', 'NomenclatureUnitFactory', 'NomenclatureTypesFactory', 'HelperService', '$location', '$routeParams', '$timeout',
+     function ($scope, NomenclatureUnitFactory, NomenclatureTypesFactory, HelperService, $location, $routeParams, $timeout) {
+
+         HelperService.activateMenu('#nomenclature-menu-item');
          NomenclatureTypesFactory.query().$promise.then(function (result) {
              $scope.nomenclatureTypes = result;
              NomenclatureUnitFactory.show({ id: $routeParams.id }).$promise.then(function (result) {
@@ -70,8 +72,11 @@ angular.module('repTec.nomenclature', ['ngRoute'])
      }
 ])
 
-.controller('AddNomenclatureCtrl', ['$scope', 'NomenclatureFactory', 'NomenclatureTypesFactory', '$location',
-     function ($scope, NomenclatureFactory, NomenclatureTypesFactory, $location) {
+.controller('AddNomenclatureCtrl', ['$scope', 'NomenclatureFactory', 'NomenclatureTypesFactory', 'HelperService', '$location',
+     function ($scope, NomenclatureFactory, NomenclatureTypesFactory, HelperService, $location) {
+
+         HelperService.activateMenu('#nomenclature-menu-item');
+
          NomenclatureTypesFactory.query().$promise.then(function (result) {
              $scope.nomenclatureTypes = result;
              $scope.nomenclature = {};
@@ -121,10 +126,13 @@ angular.module('repTec.nomenclature', ['ngRoute'])
 
 .controller('NomenclatureCtrl', ['$scope', 'NomenclatureFactory', 'NomenclatureUnitFactory', 'HelperService', '$location', '$filter',
     function ($scope, NomenclatureFactory, NomenclatureUnitFactory, HelperService, $location, $filter) {
+
         $scope.currentPage = 0;
         $scope.itemsPerPage = 10;
         $scope.nomenclature = NomenclatureFactory.query();
         $scope.filteredItems = $scope.nomenclature;
+
+        HelperService.activateMenu('#nomenclature-menu-item');
 
         $scope.editNomenclature = function (id) {
             $location.path('/nomenclature/' + id);

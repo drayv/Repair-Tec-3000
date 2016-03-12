@@ -29,6 +29,8 @@ angular.module('repTec.repairRequests', ['ngRoute'])
         $scope.itemsPerPage = 5;
         $scope.filteredItems = [];
 
+        HelperService.activateMenu('#requests-menu-item');
+
         NomenclatureUnitInRequest.show({ id: $routeParams.id }).$promise.then(function (result) {
             $scope.nomenclatureInRequest = result;
             $scope.filteredItems = $scope.nomenclatureInRequest;
@@ -152,8 +154,8 @@ angular.module('repTec.repairRequests', ['ngRoute'])
 ])
 
 .controller('AddRepairRequestCtrl', ['$scope', 'RepairRequestsFactory', 'NomenclatureFactory',
-    'RepairStatusesFactory', 'RepairersFactory', '$location', function ($scope,
-        RepairRequestsFactory, NomenclatureFactory, RepairStatusesFactory, RepairersFactory, $location) {
+    'RepairStatusesFactory', 'RepairersFactory', 'HelperService', '$location', function ($scope,
+        RepairRequestsFactory, NomenclatureFactory, RepairStatusesFactory, RepairersFactory, HelperService, $location) {
 
         $scope.repairRequest = {};
         $scope.repairRequest.Status = {};
@@ -162,6 +164,8 @@ angular.module('repTec.repairRequests', ['ngRoute'])
         $scope.equipmentSearch = {};
         $scope.equipmentSearch.Type = {};
         $scope.equipmentSearch.Type.Name = 'Оборудование';
+
+        HelperService.activateMenu('#requests-menu-item');
 
         RepairStatusesFactory.query().$promise.then(function (result) {
             $scope.repairStatuses = result;
@@ -214,10 +218,13 @@ angular.module('repTec.repairRequests', ['ngRoute'])
 
 .controller('RepairRequestsCtrl', ['$scope', 'RepairRequestsFactory', 'RepairRequestFactory', 'HelperService', '$location', '$filter',
     function ($scope, RepairRequestsFactory, RepairRequestFactory, HelperService, $location, $filter) {
+
         $scope.currentPage = 0;
         $scope.itemsPerPage = 10;
         $scope.repairRequests = RepairRequestsFactory.query();
         $scope.filteredItems = $scope.repairRequests;
+
+        HelperService.activateMenu('#requests-menu-item');
 
         $scope.editRepairRequest = function (id) {
             $location.path('/repair-request/' + id);
